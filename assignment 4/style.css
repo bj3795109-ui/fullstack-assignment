@@ -1,0 +1,149 @@
+/* General Reset & Layout */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Form Container */
+.container {
+    background-color: #ffffff;
+    padding: 30px 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* Valid and Invalid Outline Colors */
+input.valid {
+    border-color: #28a745;
+}
+
+input.invalid {
+    border-color: #dc3545;
+}
+
+/* Password field with toggle button */
+.password-container {
+    display: flex;
+    position: relative;
+}
+
+.password-container input {
+    padding-right: 60px; /* Make room for the button */
+}
+
+#togglePassword {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #007bff;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#togglePassword:hover {
+    text-decoration: underline;
+}
+
+/* Error Messages */
+.error-message {
+    color: #dc3545;
+    font-size: 12px;
+    margin-top: 5px;
+    height: 14px; /* Fix height to stop layout shifting */
+}
+
+/* Submit Button */
+#submitBtn {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#submitBtn:disabled {
+    background-color: #a0c4ff;
+    cursor: not-allowed;
+}
+
+#submitBtn:hover:not(:disabled) {
+    background-color: #0056b3;
+}
+
+/* Password Strength Meter */
+.strength-meter {
+    height: 5px;
+    background-color: #eee;
+    border-radius: 3px;
+    margin-top: 5px;
+    overflow: hidden;
+}
+
+.strength-bar {
+    height: 100%;
+    width: 0%;
+    transition: width 0.3s, background-color 0.3s;
+}
+
+.strength-text {
+    font-size: 12px;
+    margin-top: 5px;
+    color: #555;
+}
+
+/* Success Message */
+.success-message {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    border-radius: 4px;
+    text-align: center;
+}
