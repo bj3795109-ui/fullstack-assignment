@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Weather Dashboard</title>
+    
+  </head>
+
+  <body>
+    <h1>Weather Dashboard</h1>
+
+    <button id="btn">Get Weather</button>
+
+    <div class="container">
+      <div class="card" id="london">London</div>
+      <div class="card" id="newyork">New York</div>
+      <div class="card" id="tokyo">Tokyo</div> 
+    </div>
+  </body>
+  <script>
+    const btn = document.getElementById("btn");
+
+    btn.addEventListener("click", getWeather);
+
+    function getWeather() {
+      // London
+      const london = fetch(
+        "https://api.open-meteo.com/v1/forecast?latitude=51.51&longitude=-0.13&current_weather=true",
+      );
+      // New York
+      const newYork = fetch(
+        "https://api.open-meteo.com/v1/forecast?latitude=40.71&longitude=-74.01&current_weather=true",
+      );
+      // Tokyo
+      const tokyo = fetch(
+        "https://api.open-meteo.com/v1/forecast?latitude=35.69&longitude=139.69&current_weather=true",
+      );
+
+      Promise.all([london, newYork, tokyo]) 
+        .then((responses) => {
+          return Promise.all(responses.map((res) => res.json()));
+        })
+        .then((data) => {
+          const [londonData, newYorkData, tokyoData] = data;
+
+          document.getElementById("london").innerHTML =
+            `London <br> 🌡 ${londonData.current_weather.temperature}°C`;
+
+          document.getElementById("newyork").innerHTML = 
+            `New York <br> 🌡 ${newYorkData.current_weather.temperature}°C`;
+
+          document.getElementById("tokyo").innerHTML =
+            `Tokyo <br> 🌡 ${tokyoData.current_weather.temperature}°C`;
+        })
+        .catch((err) => {
+          console.log("Error:", err);
+        }); 
+       
+    }
+  </script>
+</html>
