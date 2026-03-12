@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic News App</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Using Google Fonts for a modern UI -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>📰 NewsNow</h1>
+            <p>Your daily dose of news on your favorite topics</p>
+        </div>
+    </header>
+
+    <nav class="categories">
+        <!-- These buttons will be used to select topics -->
+        <button class="topic-btn active" data-topic="general">General</button>
+        <button class="topic-btn" data-topic="technology">Technology</button>
+        <button class="topic-btn" data-topic="sports">Sports</button>
+        <button class="topic-btn" data-topic="business">Business</button>
+        <button class="topic-btn" data-topic="entertainment">Entertainment</button>
+        <button class="topic-btn" data-topic="health">Health</button>
+    </nav>
+
+    <main>
+        <!-- Loading Spinner -->
+        <div id="loading" class="loading-state">
+            <div class="spinner"></div>
+            <p>Fetching the latest news...</p>
+        </div>
+
+        <!-- Error Message Container -->
+        <div id="error-message" class="error-state hidden">
+            <p>Oops! Failed to load news. Please try again later.</p>
+        </div>
+
+        <!-- News Cards Container -->
+        <div id="news-container" class="news-grid">
+            <!-- News cards will be injected here by JavaScript -->
+        </div>
+    </main>
+
+    <footer>
+        <p>Built with ❤️ using a public News API</p>
+    </footer>
+
+    <!-- Link the JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>
