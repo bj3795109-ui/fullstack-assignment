@@ -1,4 +1,4 @@
-const API_KEY = "AIzaSyB9Gdvhmc5vmeTuOcInV_Zi8ailDysk-NI";
+const API_KEY = "";
 
 async function sendMessage(){
 
